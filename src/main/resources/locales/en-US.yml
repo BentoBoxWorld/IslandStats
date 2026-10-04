@@ -1,0 +1,36 @@
+islandstats:
+  # Names of the statistics, shown as buttons, titles and in chat.
+  stats:
+    kill-entity:
+      name: "Mobs killed by players"
+      description: "Mobs that a player killed on the island"
+    entity-death:
+      name: "All mob deaths"
+      description: "Every mob that died on the island, including in mob farms"
+  dialog:
+    # [name] is the island name, or the owner's name if the island has none
+    title: "<gold>Island Stats: [name]</gold>"
+    summary-line: "<gray>[stat]: <white>[number]</white></gray>"
+    stat-title: "<gold>[stat]</gold>"
+    # [number] is the page number and [total] is how many pages there are
+    page: "<gray>Page [number] of [total]</gray>"
+    # [mob] is replaced by the mob's name in the player's own language
+    entry: "<gray>[mob]: <white>[number]</white></gray>"
+    empty: "<gray>Nothing has been recorded yet.</gray>"
+    buttons:
+      previous: "<yellow>Previous</yellow>"
+      next: "<yellow>Next</yellow>"
+      back: "Back"
+      close: "Close"
+  chat:
+    header: "<gold>Island Stats: [name]</gold>"
+    stat-header: "<green>[stat]: <white>[number]</white></green>"
+    entry: "<gray>  [mob]: <white>[number]</white></gray>"
+  commands:
+    player:
+      description: "see your island's statistics"
+    admin:
+      description: "see or reset an island's statistics"
+      parameters: "<player> [reset]"
+      reset-done: "<green>The stats for [name]'s island have been reset.</green>"
+      confirm-reset: "<red>This will permanently erase all of the stats for [name]'s island.</red>"

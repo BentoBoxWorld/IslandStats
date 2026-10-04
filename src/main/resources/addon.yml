@@ -1,0 +1,19 @@
+name: IslandStats
+main: world.bentobox.islandstats.IslandStats
+version: ${version}${build.number}
+api-version: 3.23.0
+metrics: true
+icon: WRITABLE_BOOK
+repository: "BentoBoxWorld/IslandStats"
+
+prefix: IslandStats
+
+authors: tastybento
+
+permissions:
+  '[gamemode].island.stats':
+    description: Allow use of the '/[label] stats' command to see the island's stats
+    default: true
+  '[gamemode].admin.stats':
+    description: Allow use of the '/[label] stats' admin command to see and reset an island's stats
+    default: op
