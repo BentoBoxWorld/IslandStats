@@ -1,6 +1,5 @@
 package world.bentobox.islandstats.panels;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -103,10 +102,8 @@ public class StatsDialog {
                         "[total]", String.valueOf(pages));
             }
             int from = current * pageSize;
-            List<Component> lines = new ArrayList<>();
-            for (Map.Entry<String, Long> entry : entries.subList(from, Math.min(entries.size(), from + pageSize))) {
-                lines.add(entryLine(user, entry.getKey(), entry.getValue()));
-            }
+            List<Component> lines = entries.subList(from, Math.min(entries.size(), from + pageSize)).stream()
+                    .map(entry -> entryLine(user, entry.getKey(), entry.getValue())).toList();
             // One body block keeps the list tight rather than spacing each line out
             builder.body(Component.join(JoinConfiguration.newlines(), lines));
         }
@@ -155,7 +152,7 @@ public class StatsDialog {
     static Component mobName(String key) {
         try {
             return Component.translatable(EntityType.valueOf(key).translationKey());
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException _) {
             return Component.text(Util.prettifyText(key));
         }
     }

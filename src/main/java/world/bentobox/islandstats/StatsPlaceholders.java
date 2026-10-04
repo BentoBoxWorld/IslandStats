@@ -62,14 +62,14 @@ public class StatsPlaceholders {
     }
 
     private Island getIsland(GameModeAddon gm, User user) {
-        if (user == null || user.getUniqueId() == null) {
+        if (user.getUniqueId() == null) {
             return null;
         }
         return addon.getIslands().getIsland(gm.getOverWorld(), user);
     }
 
     private Island getVisitedIsland(GameModeAddon gm, User user) {
-        if (user == null || !user.isPlayer() || user.getLocation() == null || !gm.inWorld(user.getWorld())) {
+        if (!user.isPlayer() || user.getLocation() == null || !gm.inWorld(user.getWorld())) {
             return null;
         }
         return addon.getIslands().getProtectedIslandAt(user.getLocation()).orElse(null);

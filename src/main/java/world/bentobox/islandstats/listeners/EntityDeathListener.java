@@ -48,7 +48,7 @@ public class EntityDeathListener implements Listener {
         for (String name : addon.getSettings().getIgnoredEntities()) {
             try {
                 ignored.add(EntityType.valueOf(name.toUpperCase(Locale.ENGLISH)));
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException _) {
                 addon.logWarning("Unknown entity type in ignored-entities: " + name);
             }
         }

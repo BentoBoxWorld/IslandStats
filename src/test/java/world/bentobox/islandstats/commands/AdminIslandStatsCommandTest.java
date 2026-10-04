@@ -108,6 +108,11 @@ class AdminIslandStatsCommandTest extends CommonTestSetup {
     }
 
     @Test
+    void testExecuteWithoutCanExecute() {
+        assertFalse(command.execute(user, "stats", List.of("someone")));
+    }
+
+    @Test
     void testResetCanExecute() {
         assertTrue(command.canExecute(user, "stats", List.of("someone", "RESET")));
     }

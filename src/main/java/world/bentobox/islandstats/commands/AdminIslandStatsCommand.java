@@ -63,6 +63,11 @@ public class AdminIslandStatsCommand extends ConfirmableCommand {
 
     @Override
     public boolean execute(User user, String label, List<String> args) {
+        if (island == null) {
+            // execute was called without a successful canExecute
+            showHelp(this, user);
+            return false;
+        }
         if (args.size() == 2) {
             Island toReset = island;
             String name = targetName;

@@ -165,15 +165,11 @@ public class IslandStats extends Addon {
      */
     @NonNull
     public String getIslandName(@NonNull Island island) {
-        if (island.getName() != null && !island.getName().isBlank()) {
-            return island.getName();
+        String name = island.getName();
+        if (name != null && !name.isBlank()) {
+            return name;
         }
-        if (island.getOwner() != null) {
-            String name = getPlayers().getName(island.getOwner());
-            if (name != null) {
-                return name;
-            }
-        }
-        return "";
+        // Empty if the island has no owner
+        return getPlayers().getName(island.getOwner());
     }
 }

@@ -163,7 +163,7 @@ class IslandStatsManagerTest extends CommonTestSetup {
     }
 
     @Test
-    void testDelete() throws Exception {
+    void testDelete() {
         manager.increment(island, IslandStat.ENTITY_DEATH, EntityType.ZOMBIE);
         when(h.objectExists("island-1")).thenReturn(true);
 
@@ -175,7 +175,7 @@ class IslandStatsManagerTest extends CommonTestSetup {
     }
 
     @Test
-    void testDeleteOfUnknownIslandDoesNotTouchDatabase() throws Exception {
+    void testDeleteOfUnknownIslandDoesNotTouchDatabase() {
         when(h.objectExists("island-1")).thenReturn(false);
 
         manager.delete("island-1");
