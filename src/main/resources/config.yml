@@ -1,0 +1,28 @@
+# IslandStats addon configuration file
+#
+# IslandStats keeps statistics for each island rather than for each player,
+# such as how many of each mob has been killed on the island.
+#
+# Game modes listed here are ignored by IslandStats. Example:
+# disabled-gamemodes:
+#   - BSkyBlock
+disabled-gamemodes: []
+#
+# Count mobs killed on an island by players who are not members of it,
+# such as visitors or coops. This only affects the 'killed by players' stat.
+# Every mob death on the island is always counted in the 'all mob deaths' stat.
+count-visitor-kills: true
+#
+# Entity types that are never counted. Use the Bukkit entity type names.
+# Armor stands are living entities to the server, so they are ignored by default.
+ignored-entities:
+- ARMOR_STAND
+#
+# How often, in minutes, changed stats are written to the database.
+# Stats are counted in memory and always saved when the server stops.
+# Minimum 1.
+save-interval: 5
+dialog:
+  #
+  # How many mob lines to show on each page of the stats dialog. Range 1 to 50.
+  page-size: 15
